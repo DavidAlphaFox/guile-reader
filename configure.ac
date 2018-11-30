@@ -114,9 +114,9 @@ fi
 AC_PATH_PROGS([GUILD], [guild guile-tools])
 GUILE_SITE_DIR
 
-clean_LDFLAGS="$LDFLAGS"
+clean_LIBS="$LIBS"
 clean_CFLAGS="$CFLAGS"
-LDFLAGS="$LDFLAGS $GUILE_LDFLAGS"
+LIBS="$LIBS $GUILE_LIBS"
 CFLAGS="$CFLAGS $GUILE_CFLAGS"
 
 AC_CHECK_FUNC([scm_take_u8vector], [have_guile_1_8=yes], [have_guile_1_8=no])
@@ -148,7 +148,7 @@ AC_CHECK_TYPE([scm_t_wchar],
   [#include <libguile.h>])
 
 CFLAGS="$clean_CFLAGS"
-LDFLAGS="$clean_LDFLAGS"
+LIBS="$clean_LIBS"
 
 
 pkgdatadir="$datadir/$PACKAGE_NAME"
