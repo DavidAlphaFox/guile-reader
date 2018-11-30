@@ -34,8 +34,10 @@ snarfcppopts = $(DEFS) $(INCLUDES) $(CPPFLAGS) $(AM_CPPFLAGS) \
 # Token reader lookup.
 token-reader-lookup.c: $(srcdir)/token-readers.h
 	$(AM_V_GEN) LC_ALL=C ; export LC_ALL ; cat $< |	\
-	$(srcdir)/extract-token-readers.sh | \
-	$(GPERF) -t -C -N _scm_token_reader_lookup > $@
+	$(srcdir)/extract-token-readers.sh |		\
+	$(GPERF) -t -C -N _scm_token_reader_lookup |	\
+	$(SED) -e's/register //g' > "$@.tmp"
+	mv "$@.tmp" "$@"
 
 token-reader-list.c: $(srcdir)/token-readers.h
 	$(AM_V_GEN) LC_ALL=C ; export LC_ALL ; cat $< | \
@@ -44,6 +46,8 @@ token-reader-list.c: $(srcdir)/token-readers.h
 
 # `make-reader' flags.
 make-reader-flags.c: $(srcdir)/reader.h
-	$(AM_V_GEN) LC_ALL=C ; export LC_ALL ; cat $< | \
-	$(srcdir)/extract-make-reader-flags.sh | \
-	$(GPERF) -t -C -N _scm_to_make_reader_flag > $@
+	$(AM_V_GEN) LC_ALL=C ; export LC_ALL ; cat $< |	\
+	$(srcdir)/extract-make-reader-flags.sh |	\
+	$(GPERF) -t -C -N _scm_to_make_reader_flag |	\
+	$(SED) -e's/register //g' > "$@.tmp"
+	mv "$@.tmp" "$@"

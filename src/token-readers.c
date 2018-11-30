@@ -1,7 +1,7 @@
 /* A Scheme reader compiler for Guile.
 
    Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010, 2012,
-     2015 Ludovic Courtès <ludo@gnu.org>
+     2015, 2018 Ludovic Courtès <ludo@gnu.org>
 
    Part of the code here (a few `scm_token_reader_t' functions below) is
    based on Guile code released under the GNU LGPL (file `read.c') which
@@ -1139,7 +1139,7 @@ scm_read_skribe_exp (scm_t_wchar chr, SCM port, scm_reader_t reader,
 /* Directory of standard token readers.  */
 
 extern const struct scm_token_reader_entry *
-_scm_token_reader_lookup (const char *, unsigned int);
+_scm_token_reader_lookup (const char *, size_t);
 
 #include <string.h>
 #include "token-reader-lookup.c"

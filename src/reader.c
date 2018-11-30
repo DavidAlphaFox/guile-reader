@@ -1,6 +1,6 @@
 /* A Scheme reader compiler for Guile.
 
-   Copyright (C) 2005, 2006, 2007, 2008, 2012, 2016 Ludovic Courtès <ludo@gnu.org>
+   Copyright (C) 2005, 2006, 2007, 2008, 2012, 2016, 2018 Ludovic Courtès <ludo@gnu.org>
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -1940,7 +1940,7 @@ scm_to_reader (SCM reader)
 struct scm_reader_flag_entry;
 
 const struct scm_reader_flag_entry *
-_scm_to_make_reader_flag (const char *, unsigned int);
+_scm_to_make_reader_flag (const char *, size_t);
 
 /* Include the automatically-generated perfect hash function.  */
 #include "make-reader-flags.c"
