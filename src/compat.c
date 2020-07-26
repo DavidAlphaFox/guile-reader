@@ -1,6 +1,6 @@
 /* A Scheme reader compiler for Guile.
 
-   Copyright (C) 2008, 2012, 2016 Ludovic Courtès <ludo@gnu.org>
+   Copyright (C) 2008, 2012, 2016, 2020 Ludovic Courtès <ludo@gnu.org>
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -22,6 +22,8 @@
 
 #include <libguile.h>
 #include <compat.h>
+#include <string.h>
+#include <stdio.h>
 
 extern void scm_guile_reader_unused (void);
 

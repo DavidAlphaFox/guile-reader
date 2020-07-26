@@ -1,7 +1,7 @@
 /* A Scheme reader compiler for Guile.
 
    Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010, 2012,
-     2015, 2018 Ludovic Courtès <ludo@gnu.org>
+     2015, 2018, 2020 Ludovic CourtÃ¨s <ludo@gnu.org>
 
    Part of the code here (a few `scm_token_reader_t' functions below) is
    based on Guile code released under the GNU LGPL (file `read.c') which
@@ -37,6 +37,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 #include <strings.h>
 #include <assert.h>
 
