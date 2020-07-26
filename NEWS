@@ -1,3 +1,9 @@
+New in Guile-Reader 0.6.3
+
+  * Allow compilation with Guile 3.0.
+
+  * Fix 'configure' misdetection of libguile features.
+
 New in Guile-Reader 0.6.2
 
   * Port to Guile 2.1.7 (aka. 2.2).
