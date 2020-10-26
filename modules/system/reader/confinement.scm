@@ -92,15 +92,15 @@ that implements those options."
 		  (alternate-guile-reader-token-readers
 		   extended-read-opts)))
       (set! sharp-specs
-	    ;; Append the module's hash extensions.  Warning: no attempt is
+	    ;; Prepend the module's hash extensions.  Warning: no attempt is
 	    ;; made to avoid conflicts.
-	    (append (map (lambda (chr+proc)
+	    (append sharp-specs
+		    (map (lambda (chr+proc)
 			   (make-token-reader (car chr+proc)
 					      (lambda (chr port read top)
 						(apply (cdr chr+proc)
 						       (list chr port)))))
-			 (ensure-reader-hash-extensions module))
-		    sharp-specs))
+			 (ensure-reader-hash-extensions module))))
 
       (set! (%module-reader-sharp-specs module) sharp-specs)
 
