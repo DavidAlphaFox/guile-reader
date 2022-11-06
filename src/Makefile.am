@@ -51,3 +51,9 @@ make-reader-flags.c: $(srcdir)/reader.h
 	$(GPERF) -t -C -N _scm_to_make_reader_flag |	\
 	$(SED) -e's/register //g' > "$@.tmp"
 	mv "$@.tmp" "$@"
+
+
+# These are dependencies between BUILT_SOURCES files.
+# Need to be present to guarantee correct build order.
+token-readers.x: token-reader-list.c token-reader-lookup.c
+reader.x: make-reader-flags.c
